@@ -4,13 +4,18 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "northstar-platform"
-version = "0.1.0"
-description = "Representative Atlas platform codebase for software design analysis"
+version = "0.2.0"
+description = "Northstar Atlas platform teaching codebase"
 requires-python = ">=3.11"
+dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [tool.pytest.ini_options]
-pythonpath = ["src"]
 testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"

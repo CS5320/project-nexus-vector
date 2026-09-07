@@ -1,25 +1,6 @@
-from abc import ABC, abstractmethod
+from .models import Customer
 
-from .models import Customer, CustomerSnapshot
-
-
-class CustomerRepository(ABC):
-    @abstractmethod
-    def save(self, customer: Customer) -> None:
-        raise NotImplementedError
-
-    @abstractmethod
-    def get(self, customer_id: str) -> Customer | None:
-        raise NotImplementedError
-
-    @abstractmethod
-    def all(self) -> list[Customer]:
-        raise NotImplementedError
-
-
-class InMemoryCustomerRepository(CustomerRepository):
-    """Simple repository with a reasonably narrow responsibility."""
-
+class CustomerRepository:
     def __init__(self) -> None:
         self._customers: dict[str, Customer] = {}
 
@@ -31,7 +12,3 @@ class InMemoryCustomerRepository(CustomerRepository):
 
     def all(self) -> list[Customer]:
         return list(self._customers.values())
-
-    def snapshot(self, customer_id: str) -> CustomerSnapshot | None:
-        customer = self.get(customer_id)
-        return CustomerSnapshot.from_customer(customer) if customer else None

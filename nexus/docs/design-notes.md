@@ -1,21 +1,12 @@
 # Design Notes
 
-These notes were collected during prior maintenance and architecture reviews.
+These notes were collected during prior maintenance work.
 
-## Observations
-
-- `CustomerService` remains a compatibility layer and a source of architecture drift.
-- Newer registration and lifecycle services use centralized authorization and domain events.
-- Legacy operations continue to call notification clients directly.
-- Validation behavior differs between creation, update, reporting, and tagging.
-- The v2 API uses a consistent envelope; legacy endpoints do not.
-- Both modern and legacy report implementations remain active.
+- Customer management and reporting may not belong in the same service.
+- Validation behavior differs depending on which operation is used.
+- The API layer does not expose a consistent error model.
+- Notifications are triggered directly from domain operations.
+- Authorization checks appear both in `AuthClient` and directly in service methods.
 - Existing tests should be treated as characterization tests before redesigning behavior.
 
-## Questions for Review
-
-- Should `CustomerService` remain a façade, be decomposed, or be retired?
-- Is the event-based design worth the additional indirection?
-- Should all validation be centralized?
-- How should backward compatibility influence the redesign?
-- Which inconsistencies are defects, and which are contractual behavior?
+These notes are observations, not approved architecture decisions.

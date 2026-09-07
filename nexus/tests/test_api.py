@@ -1,51 +1,23 @@
 from northstar.api import CustomerApi
-from northstar.auth import Actor
+from northstar.auth import AuthClient
+from northstar.customer_service import CustomerService
+from northstar.notifications import NotificationClient
+from northstar.repository import CustomerRepository
+from northstar.reporting import ReportGenerator
 
+def build_api():
+    service = CustomerService(CustomerRepository(), AuthClient(), NotificationClient(), ReportGenerator())
+    return CustomerApi(service)
 
-def build_api(legacy_service, registration):
-    return CustomerApi(legacy_service, registration)
-
-
-def test_legacy_create_returns_old_error_shape(legacy_service, registration):
-    api = build_api(legacy_service, registration)
-    status, body = api.create_legacy(
-        {"name": "A", "email": "bad"},
-        actor_role="admin",
-    )
+def test_create_returns_standard_error_shape():
+    api = build_api()
+    status, body = api.create({"name": "A", "email": "bad"}, "admin")
     assert status == 400
     assert "error" in body
 
-
-def test_v2_create_returns_consistent_data_shape(legacy_service, registration):
-    api = build_api(legacy_service, registration)
-    status, body = api.create_v2(
-        {
-            "name": "Ava Morgan",
-            "email": "ava@example.com",
-            "tier": "premium",
-        },
-        Actor("u1", "admin"),
-    )
-    assert status == 201
-    assert body["data"]["tier"] == "premium"
-
-
-def test_v2_create_returns_structured_forbidden_error(legacy_service, registration):
-    api = build_api(legacy_service, registration)
-    status, body = api.create_v2(
-        {"name": "Ava Morgan", "email": "ava@example.com"},
-        Actor("u1", "viewer"),
-    )
-    assert status == 403
-    assert body["error"]["code"] == "forbidden"
-
-
-def test_legacy_update_leaks_exception_type(legacy_service, registration):
-    api = build_api(legacy_service, registration)
-    status, body = api.update_email_legacy(
-        "missing",
-        {"email": "new@example.com"},
-        actor_role="admin",
-    )
+def test_update_email_returns_legacy_error_shape():
+    api = build_api()
+    status, body = api.update_email("missing", {"email": "new@example.com"}, "admin")
     assert status == 500
+    assert body["status"] == "failed"
     assert body["exception"] == "CustomerNotFoundError"
