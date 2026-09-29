@@ -4,11 +4,11 @@ This repository is the shared engineering workspace for Team Vector.
 
 ## Team Members
 
-- Student Name
-- Student Name
-- Student Name
-- Student Name
-- Student Name
+- Fabian Perez Muñoz
+- Caleb Smith
+- Tawnya Vrablik
+- Sam Aldinger
+- Jacob Yepez
 
 ## START HERE: Nexus
 
