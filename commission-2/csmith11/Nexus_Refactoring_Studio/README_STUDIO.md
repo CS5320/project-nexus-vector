@@ -5,14 +5,17 @@ This is a disposable, offline-compatible subset of **basic Nexus**, not Nexus 2,
 not a customer feature implementation, and not a replacement team repository.
 
 ## Start
-1. Extract the ZIP. Open the `Nexus_Refactoring_Studio` folder in your editor.
+1. In your group repository, open `commission-2`, then your **UCCS username**
+   folder, then `Nexus_Refactoring_Studio`. Your copy is already extracted;
+   no separate ZIP download is required.
 2. Open a terminal in that folder. Python 3.10 or newer is required.
 3. Run `python3 check_refactoring.py` (or `python check_refactoring.py` if that
    selects Python 3.10+ on your machine). No package installation is needed.
 4. The untouched sample should report **14 tests, OK**. Record the actual result.
    Do not begin a refactoring with a failing baseline.
 
-Two students can share one working environment. Spend no more than three minutes
+Discuss the exercise with classmates, but make changes in your own student
+folder and leave other students' copies unchanged. Spend no more than three minutes
 troubleshooting setup before using the projected code / paper-diff route. In the
 paper route, predict checks and write **not executed**, never “tests passed.”
 

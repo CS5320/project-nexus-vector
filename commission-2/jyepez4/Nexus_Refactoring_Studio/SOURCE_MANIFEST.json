@@ -1,0 +1,36 @@
+{
+  "repository": "CS5320/northstar-platform",
+  "commit": "d2de51b4f2d5f718dd45e5ce553665b610a38dcf",
+  "license": "CC0-1.0",
+  "license_url": "https://github.com/CS5320/northstar-platform/blob/d2de51b4f2d5f718dd45e5ce553665b610a38dcf/LICENSE",
+  "files": {
+    "models.py": {
+      "git_blob_sha": "ce75a381d48a19a5a1ab56b217129c5f9b2642a3",
+      "url": "https://github.com/CS5320/northstar-platform/blob/d2de51b4f2d5f718dd45e5ce553665b610a38dcf/src/northstar/models.py"
+    },
+    "repository.py": {
+      "git_blob_sha": "6467341b29de192ac6ab5c55b51b379c3e9ddb9a",
+      "url": "https://github.com/CS5320/northstar-platform/blob/d2de51b4f2d5f718dd45e5ce553665b610a38dcf/src/northstar/repository.py"
+    },
+    "auth.py": {
+      "git_blob_sha": "1d444c5ecdaea65ff460badad6baa86d3bb25fc0",
+      "url": "https://github.com/CS5320/northstar-platform/blob/d2de51b4f2d5f718dd45e5ce553665b610a38dcf/src/northstar/auth.py"
+    },
+    "errors.py": {
+      "git_blob_sha": "174d5c3dbf676c37d963f35867795731ea1915b7",
+      "url": "https://github.com/CS5320/northstar-platform/blob/d2de51b4f2d5f718dd45e5ce553665b610a38dcf/src/northstar/errors.py"
+    },
+    "notifications.py": {
+      "git_blob_sha": "45f43ea0080145b31df8dea19f092c734e629ff9",
+      "url": "https://github.com/CS5320/northstar-platform/blob/d2de51b4f2d5f718dd45e5ce553665b610a38dcf/src/northstar/notifications.py"
+    },
+    "reporting.py": {
+      "git_blob_sha": "bf9b5b1bb5bd29f5c81564bea987f2602e9e5ef3",
+      "url": "https://github.com/CS5320/northstar-platform/blob/d2de51b4f2d5f718dd45e5ce553665b610a38dcf/src/northstar/reporting.py"
+    },
+    "customer_service.py": {
+      "git_blob_sha": "66122e0dacb8af018d9a6da0f97e09d7eeea6bce",
+      "url": "https://github.com/CS5320/northstar-platform/blob/d2de51b4f2d5f718dd45e5ce553665b610a38dcf/src/northstar/customer_service.py"
+    }
+  }
+}
