@@ -16,4 +16,4 @@ class ReportGenerator:
         for customer in customers:
             validate_customer_for_report(customer)
             lines.append(_format_customer_row(customer))
-        return "\n".join(lines)
+        return "\n".join(lines) + "\n"
